@@ -18,15 +18,16 @@ export default function SetAvatar() {
         if(!localStorage.getItem('chat-app-user')){
             navigate('/login');
         }
-    },[])
+    },[]);
 
-    const api = "https://api.multiavatar.com/12345";
+    const api = "https://api.multiavatar.com/12345678";
 
     const setProfilePicture = async() => {
         if(selectedAvatar === undefined) {
             toast.warning("Please select an avatar");
         }
-        else {
+        else 
+        {
             const user = await JSON.parse(localStorage.getItem("chat-app-user")); 
 
             console.log('Frontend SETAVATAR.JSX: ', user);
@@ -36,7 +37,7 @@ export default function SetAvatar() {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ image: avatars[selectedAvatar] })
+                body: JSON.stringify({ image: avatars[selectedAvatar] }),
             })
             
             const data = await response.json();
@@ -52,17 +53,17 @@ export default function SetAvatar() {
             else {
                 toast.error("Error setting avatar. Please try again!");
             }
-        }
+        } 
     };
-
+    
     useEffect(() => {
         const fetchData = async() => {
 
             const data = []; // Learn the buffer & fetchData
-            for(let i=0; i<4; i++) {
+            for(let i=0; i<5; i++) {
                 const response = await fetch(`${api}/${Math.round(Math.random() * 1000)}`);
-                const image = await response.text(); // Get the response text (SVG --> Scalable Vector Graphics)
-                const buffer = Buffer.from(image); // Convert the text to a buffer
+                const image = await response.text();  // Get the response text (SVG --> Scalable Vector Graphics)
+                const buffer = Buffer.from(image);    // Convert the text to a buffer
                 data.push(buffer.toString("base64")); // Convert the buffer to base64
             }
             setAvatars(data);
