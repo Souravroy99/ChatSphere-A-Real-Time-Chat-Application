@@ -42,9 +42,10 @@ function Register() {
             toast.success("Registration successfully done");
             localStorage.setItem('chat-app-user',  JSON.stringify(data.createdUser));
             console.log("Register.jsx: ", (data.createdUser));
+
             navigate('/');
         }
-        else{
+        else {
             toast.error(data.msg);
         }
     }

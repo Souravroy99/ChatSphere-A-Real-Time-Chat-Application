@@ -25,18 +25,21 @@ function Login() {
   const handleSubmit = async(e) => {
     e.preventDefault();
 
-    if(handleValidation()){
+    if(handleValidation()) {
+      console.log("HIH")
         const response = await fetch(`http://localhost:5000/api/auth/login`, {
             method: "POST",
             headers:{"Content-Type": "application/json"},
             body: JSON.stringify(values),
         })
-
+ 
         const data = await response.json();
 
         if(response.ok) {
             toast.success("Login successfully done");
-            localStorage.setItem('chat-app-user', data.createdUser);
+            localStorage.setItem('chat-app-user', JSON.stringify(data.loginUser));
+            console.log("Login.jsx: ", (data.loginUser));
+
             navigate('/');
         }
         else{

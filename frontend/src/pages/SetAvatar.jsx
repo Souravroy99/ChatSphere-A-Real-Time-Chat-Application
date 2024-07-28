@@ -24,7 +24,7 @@ export default function SetAvatar() {
 
     const setProfilePicture = async() => {
         if(selectedAvatar === undefined) {
-            toast.error("Please select an avatar");
+            toast.warning("Please select an avatar");
         }
         else {
             const user = await JSON.parse(localStorage.getItem("chat-app-user")); 

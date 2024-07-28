@@ -24,14 +24,14 @@ function Chat() {
       if(currentUser) 
       {
           if(currentUser.isAvatarImageSet) 
-            {
+          {
             const fetchAlluserDatas = async() => {
               const response = await fetch(`http://localhost:5000/api/auth/allUsers/${currentUser._id}`, {
                 method: "GET",
               });
 
               const data = await response.json();
-              setContacts(data.createdUser);
+              setContacts(data.users);
             }
             
             fetchAlluserDatas();
@@ -40,13 +40,13 @@ function Chat() {
             navigate('/setAvatar');
           }
       }
-  },[currentUser]);
+  },[currentUser]); 
 
 
   return (
     <Container>
       <div className="container">
-          <Contacts contacts={contacts} CurrentUser={currentUser}/>
+          <Contacts contacts={contacts} currentUser={currentUser}/>
       </div>
     </Container>
   )

@@ -33,24 +33,29 @@ const register = async(req, res, next) => {
     }
 } 
 
-const login = async(req, res, next) => {
-    try{
-        const response = req.body;
+const login = async (req, res, next) => {
+    try {
+        const { username, password } = req.body;
 
-        const isUserExists = await User.findOne({username: response.username});
-        const isValidPassowrd = await bcrypt.compare(response.password, isUserExists.password);
+        const isUserExists = await User.findOne({ username }).lean();
+        if (!isUserExists) {
+            return res.status(400).json({ msg: "Invalid Credentials!" });
+        }
 
-        if(!isUserExists || !isValidPassowrd) {
-            return res.status(400).json({msg: "Invalid Credentials!"});
+        const isValidPassword = await bcrypt.compare(password, isUserExists.password);
+        if (!isValidPassword) {
+            return res.status(400).json({ msg: "Invalid Credentials!" });
         }
 
         delete isUserExists.password;
-        return res.status(200).json({isUserExists});
-    }
-    catch(error){
+
+        return res.status(200).json({ loginUser: isUserExists });
+    } 
+    catch (error) {
         next(error);
     }
-}
+};
+
 
 const setAvatar = async(req,res,next) => {
     try{
