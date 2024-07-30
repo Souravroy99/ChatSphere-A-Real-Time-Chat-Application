@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {BiPowerOff} from 'react-icons/bi';
 
 export default function Logout() {
+
     const navigate = useNavigate() ;
     const handleClick = async() => {
         localStorage.clear();
@@ -20,13 +21,15 @@ const Button = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #9a86f3;
+    background-color: #ff0000;
     border-radius: 0.5rem;
     padding: 0.5rem;
     border: none;
     cursor: pointer;
-    svg{
+    margin-right: -1.2rem;
+
+    svg {
         font-size: 1.3rem;
-        color: ebe7ff;
+        color: #ebe7ff;
     }
 `;

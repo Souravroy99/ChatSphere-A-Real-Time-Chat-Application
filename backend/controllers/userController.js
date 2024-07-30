@@ -66,7 +66,7 @@ const setAvatar = async(req,res,next) => {
         return res.status(200).json({isSet: userData.isAvatarImageSet, image: userData.avatarImage});
     }   
     catch(error){ 
-        next(error);
+        next(error); 
     }
 }
 

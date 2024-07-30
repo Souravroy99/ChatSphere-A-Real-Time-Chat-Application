@@ -1,11 +1,13 @@
 import styled from "styled-components"
 
 export default function Messages() {
-  return (
-    <Container>Messages</Container>
-  )
+  return ( 
+    <Container className="message"> Messages </Container>
+  );
 }
 
 const Container = styled.div`
-    height: 80%
+    height: 84.3%;
+    color: white;
+    background-color: #080420 ;
 `;

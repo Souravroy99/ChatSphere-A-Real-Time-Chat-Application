@@ -36,7 +36,7 @@ export default function Contacts({ contacts, currentUser, changeChat }) {
                   className={`contact ${
                     index === currentSelected ? "selected" : ""
                   }`}
-                >
+                > 
                   <div className="avatar">
                     <img
                       src={`data:image/svg+xml;base64,${contact.avatarImage}`}
@@ -107,7 +107,16 @@ const Container = styled.div`
       }
     }
     .contact {
-      background-color: #ffffff39;
+      background-color: #00ffaa ;
+      &::-webkit-scrollbar {
+      width: 0.2rem;
+      height: 0.2rem;
+      &-thumb {
+        background-color: #0000ff;
+        width: 0.1rem;
+        border-radius: 1rem;
+      }
+    }
       min-height: 5rem;
       width: 90%;
       cursor: pointer;
@@ -116,7 +125,7 @@ const Container = styled.div`
       gap: 1rem;
       display: flex;
       align-items: center;
-      transition: 0.5s ease-in-out;
+      transition: 0.4s ease-in-out;
       overflow: auto;
       .avatar {
         img {
@@ -135,6 +144,15 @@ const Container = styled.div`
     }
   }
   .current-user {
+    &::-webkit-scrollbar {
+      width: 0.2rem;
+      height: 0.2rem;
+      &-thumb {
+        background-color: #0000ff;
+        width: 0.1rem;
+        border-radius: 1rem;
+      }
+    }
     background-color: #0d0d30;
     display: flex;
     justify-content: center;
