@@ -3,9 +3,9 @@ const bcrypt = require('bcrypt');
 
 
 const register = async(req, res, next) => {
-    try{
+    try{   
         const response = req.body;
-
+ 
         const userNameCheck = await User.findOne({username: response.username});
         const emailCheck = await User.findOne({email: response.email});
 

@@ -7,5 +7,8 @@
     "mongoose": "^8.5.1",
     "nodemon": "^3.1.4",
     "socket.io": "^4.7.5"
+  },
+  "script": {
+    "start": "nodemon index.js"
   }
 }

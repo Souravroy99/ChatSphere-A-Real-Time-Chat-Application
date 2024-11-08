@@ -13,7 +13,7 @@ function Login() {
   const [values, setValues] = useState({
       username:"",
       password:"",
-  })
+  }) 
 
   // If user logged in
   useEffect(() => {
@@ -32,7 +32,7 @@ function Login() {
             body: JSON.stringify(values),
         })
  
-        const data = await response.json();
+        const data = await response.json(); 
 
         if(response.ok) {
             toast.success("Login successfully done");

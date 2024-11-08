@@ -7,5 +7,5 @@ router.route('/login').post(userController.login);
 router.route('/setAvatar/:id').post(userController.setAvatar);
 router.route('/allUsers/:id').get(userController.getAllUsers); 
 
-
-module.exports = router;
+ 
+module.exports = router; 

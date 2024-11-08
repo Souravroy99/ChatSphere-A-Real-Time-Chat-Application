@@ -32,8 +32,10 @@ function Chat() {
   }, [currentUser]);
 
   useEffect(() => {
-    if (currentUser) {
-      if (currentUser.isAvatarImageSet) {
+    if (currentUser)  
+    {
+      if (currentUser.isAvatarImageSet) 
+      {
         const fetchAlluserDatas = async () => {
           const response = await fetch(
             `http://localhost:5000/api/auth/allUsers/${currentUser._id}`,
@@ -47,7 +49,9 @@ function Chat() {
         };
 
         fetchAlluserDatas();
-      } else {
+      } 
+      else 
+      {
         navigate("/setAvatar");
       }
     }
@@ -57,22 +61,24 @@ function Chat() {
     // Need to understand
     setCurrentChat(chat);
   };
-  {
-    /* Need to study the props function*/
-  }
+
+
   return (
     <Container>
       <div className="container">
         <Contacts
-          contacts={contacts}
+          contacts={contacts} 
           currentUser={currentUser}
           changeChat={handleChatChange}
         />
-        {isLoaded && currentChat === undefined ? (
-          <Welcome currentUser={currentUser} />
-        ) : (
-          <ChatContainer currentChat={currentChat} currentUser={currentUser} socket={socket}/>
-        )}
+        {
+          isLoaded &&
+          (
+            currentChat === undefined ? ( <Welcome currentUser={currentUser} />) : (
+            <ChatContainer currentChat={currentChat} currentUser={currentUser} socket={socket}/>)
+          )
+        }
+        
       </div>
     </Container>
   );

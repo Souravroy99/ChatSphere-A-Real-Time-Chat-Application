@@ -36,7 +36,7 @@ export default function Contacts({ contacts, currentUser, changeChat }) {
                   className={`contact ${
                     index === currentSelected ? "selected" : ""
                   }`}
-                > 
+                >
                   <div className="avatar">
                     <img
                       src={`data:image/svg+xml;base64,${contact.avatarImage}`}
@@ -50,6 +50,7 @@ export default function Contacts({ contacts, currentUser, changeChat }) {
               );
             })}
           </div>
+
           <div className="current-user">
             <div className="avatar">
               <img
@@ -61,6 +62,7 @@ export default function Contacts({ contacts, currentUser, changeChat }) {
               <h2>{currentUserName}</h2>
             </div>
           </div>
+          
         </Container>
       )}
     </>
@@ -72,6 +74,8 @@ const Container = styled.div`
   grid-template-rows: 10% 75% 15%;
   overflow: hidden;
   background-color: #080420;
+  ${"" /* background: linear-gradient(145deg, #e6f7f2, #ffe4e1); */}
+
   .brand {
     display: flex;
     align-items: center;
@@ -107,16 +111,19 @@ const Container = styled.div`
       }
     }
     .contact {
-      background-color: #00ffaa ;
+      background-color: #00ffaa;
+      background: linear-gradient(145deg, violet, blue);
+
+      color: black;
       &::-webkit-scrollbar {
-      width: 0.2rem;
-      height: 0.2rem;
-      &-thumb {
-        background-color: #0000ff;
-        width: 0.1rem;
-        border-radius: 1rem;
+        width: 0.2rem;
+        height: 0.2rem;
+        &-thumb {
+          background-color: #0000ff;
+          width: 0.1rem;
+          border-radius: 1rem;
+        }
       }
-    }
       min-height: 5rem;
       width: 90%;
       cursor: pointer;
@@ -135,12 +142,15 @@ const Container = styled.div`
       .username {
         h3 {
           word-break: break-all;
-          color: white;
+          ${"" /* color: white; */}
         }
       }
     }
     .selected {
-      background-color: #9186f3;
+      ${"" /* background: linear-gradient(145deg, violet, blue); */}
+      ${"" /* background: linear-gradient(145deg,  lime , violet); */}
+
+      background: rgb(0, 250, 0, 0.8);
     }
   }
   .current-user {

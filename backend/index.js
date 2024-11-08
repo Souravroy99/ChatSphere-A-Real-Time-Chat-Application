@@ -3,8 +3,8 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./utilis/Database');
-const userRouter = require('./routers/userRoute')
-const messageRouter = require('./routers/messageRoute')
+const userRouter = require('./routers/userRoute');
+const messageRouter = require('./routers/messageRoute');
 
 const {Server} = require("socket.io");
 
@@ -22,7 +22,6 @@ app.use(express.json());
 
 app.use('/api/auth', userRouter);
 app.use('/api/message', messageRouter);
-
 
 
 const port = process.env.PORT;

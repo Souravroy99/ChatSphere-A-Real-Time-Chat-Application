@@ -9,7 +9,7 @@ import { Buffer } from "buffer";
 
 export default function SetAvatar() {
     
-    const [avatars, setAvatars] = useState([]);
+    const [avatars, setAvatars] = useState([]) ;
     const [isLoading, setIsLoading] = useState(true);
     const [selectedAvatar, setSelectedAvatar] = useState(undefined);
     const navigate = useNavigate();
@@ -42,7 +42,7 @@ export default function SetAvatar() {
             
             const data = await response.json();
 
-            if(data.isSet) {    
+            if(data.isSet) {     
 
                 user.isAvatarImageSet = true;
                 user.avatarImage = data.image;

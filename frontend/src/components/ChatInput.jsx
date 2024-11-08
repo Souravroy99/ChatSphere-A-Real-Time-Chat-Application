@@ -21,9 +21,7 @@ export default function ChatInput({ handleSendMsg }) {
     
     if (msg.length > 0) {
         handleSendMsg(msg);
-        setMsg("");
-
-        console.log("MSG : ", msg);
+        setMsg(""); 
     } else {
       console.log("Type Something");
     }
@@ -36,14 +34,14 @@ export default function ChatInput({ handleSendMsg }) {
           <div className="emoji">
             <BsEmojiSmileFill onClick={handleEmojiPickerHideAndShow} />
             {showEmojiPicker && (
-              <Picker className="emoji-picker-react" onEmojiClick={handleEmojiClick} />
+              <Picker className="emoji-picker-react emoji-scroll-wrapper emoji-categories emoji-search emoji-group" onEmojiClick={handleEmojiClick} />
             )}
           </div>
         </div>
         <form className="input-container" onSubmit={sendChat}>
           <input
             type="text"
-            placeholder="type your message here"
+            placeholder="Write your message here"
             value={msg}
             onChange={(event) => setMsg(event.target.value)}
           />
@@ -132,13 +130,14 @@ const Container = styled.div`
       }
     }
     button {
-      padding: 0.3rem 2rem;
-      border-radius: 2rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: 3rem;
       display: flex;
       justify-content: center;
       align-items: center;
       background-color: #9a86f3;
       border: none;
+      cursor: pointer;
       @media screen and (min-width: 720px) and (max-width: 1080px) {
         padding: 0.3rem 1rem;
         svg {
