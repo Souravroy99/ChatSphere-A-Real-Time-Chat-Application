@@ -8,7 +8,9 @@ import { Buffer } from "buffer";
 
 
 export default function SetAvatar() {
-    
+    const url = "https://backend-chatsphere-a-real-time-chat.onrender.com" ;
+    // const url = "http://localhost:5000" ;
+
     const [avatars, setAvatars] = useState([]) ;
     const [isLoading, setIsLoading] = useState(true);
     const [selectedAvatar, setSelectedAvatar] = useState(undefined);
@@ -32,7 +34,7 @@ export default function SetAvatar() {
 
             console.log('Frontend SETAVATAR.JSX: ', user);
 
-            const response = await fetch(`http://localhost:5000/api/auth/setAvatar/${user._id}`, { 
+            const response = await fetch(`${url}/api/auth/setAvatar/${user._id}`, { 
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

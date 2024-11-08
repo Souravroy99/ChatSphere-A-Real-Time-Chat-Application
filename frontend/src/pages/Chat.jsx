@@ -7,6 +7,10 @@ import ChatContainer from "../components/ChatContainer";
 import { io } from "socket.io-client";
 
 function Chat() {
+  const url = "https://backend-chatsphere-a-real-time-chat.onrender.com" ;
+  // const url = "http://localhost:5000" ;
+
+
   const socket = useRef();
 
   const navigate = useNavigate();
@@ -26,7 +30,7 @@ function Chat() {
 
   useEffect(() => {
     if (currentUser) {
-      socket.current = io(`localhost:5000`);
+      socket.current = io(`${url}`);
       socket.current.emit("add-user", currentUser._id);
     }
   }, [currentUser]);
@@ -38,7 +42,7 @@ function Chat() {
       {
         const fetchAlluserDatas = async () => {
           const response = await fetch(
-            `http://localhost:5000/api/auth/allUsers/${currentUser._id}`,
+            `${url}/api/auth/allUsers/${currentUser._id}`,
             {
               method: "GET",
             }

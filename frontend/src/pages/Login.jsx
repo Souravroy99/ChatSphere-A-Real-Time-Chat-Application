@@ -7,6 +7,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 function Login() {
+  const url = "https://backend-chatsphere-a-real-time-chat.onrender.com" ;
+  // const url = "http://localhost:5000" ;
 
   const navigate = useNavigate();
 
@@ -26,7 +28,7 @@ function Login() {
     e.preventDefault();
 
     if(handleValidation()) {
-        const response = await fetch(`http://localhost:5000/api/auth/login`, {
+        const response = await fetch(`${url}/api/auth/login`, {
             method: "POST",
             headers:{"Content-Type": "application/json"},
             body: JSON.stringify(values),

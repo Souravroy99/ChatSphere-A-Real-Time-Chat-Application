@@ -6,13 +6,16 @@ import ChatInput from "./ChatInput";
 import Loading from "../assets/loader.gif";
 
 export default function ChatContainer({ currentChat, currentUser, socket }) {
+  const url = "https://backend-chatsphere-a-real-time-chat.onrender.com" ;
+  // const url = "http://localhost:5000" ;
+
   const [isLoading, setIsLoading] = useState(true);
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
     try {
       const fetchAllMessages = async () => {
-        const response = await fetch(`http://localhost:5000/api/message/getMsg`, {
+        const response = await fetch(`${url}/api/message/getMsg`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ from: currentUser._id, to: currentChat._id }),
@@ -37,7 +40,7 @@ export default function ChatContainer({ currentChat, currentUser, socket }) {
 
   const handleSendMsg = async (msg) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/message/addMsg`, {
+      const response = await fetch(`${url}/api/message/addMsg`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: msg, from: currentUser._id, to: currentChat._id }),

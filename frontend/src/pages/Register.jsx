@@ -8,6 +8,9 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Register() {
+  const url = "https://backend-chatsphere-a-real-time-chat.onrender.com" ;
+  // const url = "http://localhost:5000" ;
+
   const navigate = useNavigate();
 
   const [values, setValues] = useState({
@@ -28,7 +31,7 @@ function Register() {
     e.preventDefault();
 
     if (handleValidation()) {
-      const response = await fetch(`http://localhost:5000/api/auth/register`, {
+      const response = await fetch(`${url}/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
