@@ -11,8 +11,11 @@ const {Server} = require("socket.io");
 
 const app = express();
 
+// const url = "http://localhost:5173" ;
+const url = "https://frontend-chatsphere-a-real-time-chat.onrender.com" ;
+
 const corsOptions = {
-    origin: "http://localhost:5173",
+    origin: `${url}`,
     methods: "GET, POST, PUT, PATCH, DELETE, HEAD",
     credentials: true,
 };
@@ -37,7 +40,7 @@ connectDB()
 
     const io = new Server(httpServer, {
         cors: {
-            origin: "http://localhost:5173",
+            origin: `${url}`,
             credentials: true,
         },
     }) 
